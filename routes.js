@@ -47,7 +47,7 @@ router.delete('/:id', (req, res) => {
             res.json({sucess: true});
         })
     })
-    .catch(err => res.status(404).json({ recipenotfound: "No recipe fund" }))
+    .catch(err => res.status(404).json({ recipenotfound: "No recipe fund" }));
 });
 
 
