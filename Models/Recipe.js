@@ -10,7 +10,7 @@ const RecipeSchema = new Schema({
       type: String,
       required: true
     },
-    procedure: {
+    proc: {
       type: String,
       required: true
     },

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const Recipe = require('./Models/Recipe');
 
 //@route    GET api/test
@@ -18,7 +17,7 @@ router.get('/test', (req,res) => {
 //@access   Public
 router.get("/", (req, res) => {
     Recipe.find()
-      .sort({ date: -1 })
+      .sort({ timestamp: -1 })
       .then(recipe => res.json(recipe))
       .catch(err => res.status(404).json({ noRecipesFound: "No recipes found" }));
 });
@@ -29,9 +28,9 @@ router.get("/", (req, res) => {
 //@access   Public
 router.post("/", (req, res) => {
       const newRecipe = new Recipe({
-        name: 'recept 1',
-        desc: 'test recept',
-        procedure: 'postup'
+        name: req.body.name,
+        desc: req.body.desc,
+        proc: req.body.proc
       });
   
       newRecipe.save().then(recipe => res.json(recipe));
