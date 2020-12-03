@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 
 //database
-const dbPath = 'mongodb://g0d:h3sl00@ds127736.mlab.com:27736/spoonsprint';
+const dbPath = 'mongodb+srv://g0d:nimda@cluster0.t0pd8.mongodb.net/spoonsprint';
 const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false};
 const mongo = mongoose.connect(process.env.MONGODB_URI || dbPath, options);
 

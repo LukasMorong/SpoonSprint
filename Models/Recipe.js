@@ -52,7 +52,7 @@ const RecipeSchema = new Schema({
     },
     views: {
       type: Number,
-      default: Math.round(Math.random()*10000)
+      default: 0
     },
     timestamp: {
       type: Date,
