@@ -10,9 +10,49 @@ const RecipeSchema = new Schema({
       type: String,
       required: true
     },
-    proc: {
-      type: String,
-      required: true
+    ingr: [
+      {
+        name: {
+          type: String,
+          required: true
+        },
+        amount: {
+          type: Number,
+          required: true
+        },
+        unit: {
+          type: String,
+          required: false
+        }
+      }
+    ],
+    inst: [
+      {
+        name: {
+          type: String,
+          required: true
+        },
+        desc: {
+          type: String,
+          required: true
+        },
+        startTime: {
+          type: Number,
+          required: true
+        },
+        duration: {
+          type: Number,
+          required: true
+        }
+      }
+    ],
+    favourite: {
+      type: Boolean,
+      default: false
+    },
+    views: {
+      type: Number,
+      default: Math.round(Math.random()*10000)
     },
     timestamp: {
       type: Date,
@@ -20,4 +60,4 @@ const RecipeSchema = new Schema({
     }
   });
   
-  module.exports = Recipe = mongoose.model("recipies", RecipeSchema);
+  module.exports = Recipe = mongoose.model("recipes", RecipeSchema);

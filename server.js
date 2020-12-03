@@ -24,8 +24,8 @@ app.get('/', (req, res) => {
 
 //database
 const dbPath = 'mongodb://g0d:h3sl00@ds127736.mlab.com:27736/spoonsprint';
-const options = {useNewUrlParser: true, useUnifiedTopology: true};
-const mongo = mongoose.connect(dbPath, options);
+const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false};
+const mongo = mongoose.connect(process.env.MONGODB_URI || dbPath, options);
 
 mongo.then(() => {
     console.log('connected to database');
