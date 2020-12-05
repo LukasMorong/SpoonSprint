@@ -33,6 +33,17 @@ router.get("/views", (req, res) => {
 });
 
 
+//@route    GET api/:id
+//@desc     Get recipe by id
+//@access   Public
+router.get("/:id", (req, res) => {
+    Recipe.findById(req.params.id).then(recipe => {
+        res.json(recipe);
+    })
+    .catch(err => res.status(404).json({ recipenotfound: "No recipe found" }));
+});
+
+
 //@route    POST api/
 //@desc     Create recipe
 //@access   Public
@@ -63,7 +74,7 @@ router.delete('/:id', (req, res) => {
 
 
 //@route    POST api/setfavourite/:id
-//@desc     Add post to favourites
+//@desc     Toggle favouritness
 //@access   Public
 router.post(
     "/setfavourite/:id",
