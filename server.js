@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 
 //database
-const dbPath = 'mongodb+srv://g0d:nimda@cluster0.t0pd8.mongodb.net/spoonsprint';
+const dbPath = 'local';
 const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false};
 const mongo = mongoose.connect(process.env.MONGODB_URI || dbPath, options);
 
