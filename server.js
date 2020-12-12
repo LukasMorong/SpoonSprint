@@ -3,10 +3,13 @@ const app = express();
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 //parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
+
 
 //router
 app.use('/api', routes);
@@ -23,7 +26,7 @@ app.get('/', (req, res) => {
 
 
 //database
-const dbPath = 'local';
+const dbPath = 'mongodb+srv://g0d:nimda@cluster0.t0pd8.mongodb.net/spoonsprint';
 const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false};
 const mongo = mongoose.connect(process.env.MONGODB_URI || dbPath, options);
 

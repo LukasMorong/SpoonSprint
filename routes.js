@@ -16,6 +16,7 @@ router.get('/test', (req,res) => {
 //@desc     Get recipes
 //@access   Public
 router.get("/", (req, res) => {
+    console.log("jebe?");
     Recipe.find()
       .sort({ timestamp: -1 })
       .then(recipes => res.json(recipes))
@@ -51,8 +52,8 @@ router.post("/", (req, res) => {
       const newRecipe = new Recipe({
         name: req.body.name,
         desc: req.body.desc,
-        ingr: JSON.parse(req.body.ingr),
-        inst: JSON.parse(req.body.inst),
+        ingr: req.body.ingr,
+        inst: req.body.inst,
         views: Math.round(Math.random()*10000)
       });
   
