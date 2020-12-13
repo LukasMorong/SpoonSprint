@@ -18,7 +18,7 @@ const RecipeSchema = new Schema({
         },
         amount: {
           type: Number,
-          required: true
+          required: false
         },
         unit: {
           type: String,
@@ -36,13 +36,9 @@ const RecipeSchema = new Schema({
           type: String,
           required: true
         },
-        startTime: {
-          type: Number,
-          required: true
-        },
         duration: {
           type: Number,
-          required: true
+          required: false
         }
       }
     ],
