@@ -61,6 +61,24 @@ router.post("/", (req, res) => {
 });
 
 
+//@route    POST api/:id
+//@desc     Edit recipe
+//@access   Public
+router.post("/:id", (req, res) => {
+    const updatedRecipe = new Recipe({
+      name: req.body.name,
+      desc: req.body.desc,
+      ingr: req.body.ingr,
+      inst: req.body.inst
+    });
+
+    Recipe.findByIdAndUpdate(
+        { _id: req.params.id },
+        { $set: updatedRecipe },
+        { new: true }
+    ).then(recipe => res.json(recipe));
+});
+
 //@route    DELETE api/:id
 //@desc     Delete recipe
 //@access   Public
